@@ -1,0 +1,45 @@
+<h2>Tu Carro</h2>
+
+<div ng-controller="resumenCarroCtrl">
+
+	<div ng-show="datosCarro.length === 0" class="alert alert-warning">No tienes productos en el carro de la compra
+	</div>
+	
+	<a href="#/productos" class="alert-link">Volver al catálogo</a>
+	
+	<div ng-hide="datosCarro.length=== 0">
+		<table class="table">
+			<thead>
+				<th>Cantidad</th>
+				<th>Reloj</th>
+				<th class="text-right">Precio</th>
+				<th class="text-right">Subtotal</th>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in datosCarro">
+					<td class="text-center">{{item.cantidad}}</td>
+					<td class="text-left">{{item.producto}}</td>
+					<td class="text-right">{{item.precio | currency}}</td>
+					<td class="text-right">{{item.precio * item.cantidad}}</td>
+					<td>
+						<button ng-click="eliminar(item.id)" class="btn btn-warning btn-sm">Eliminar</button>
+					</td>
+				</tr>
+			</tbody>
+			<tfoot>
+			<tr>
+				<td colspan="3" class="text-right">Total: </td>
+				<td class="text-right">{{total() | currency}}</td>
+				
+			</tr>
+			</tfoot>
+		
+		</table>
+		
+		
+		<div class="text-center">
+			<a href="#/productos.html" class="btn btn-primary">Seguir comprando</a>		
+		</div>
+	</div>
+
+</div>

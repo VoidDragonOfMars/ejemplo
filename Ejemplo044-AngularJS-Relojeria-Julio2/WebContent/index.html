@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="relojesApp">
+<head>
+<meta charset="UTF-8">
+<title>Relojeria Online</title>
+<link rel="stylesheet" href="resources/styles/bootstrap.min.css" />
+<link rel="stylesheet" href="resources/styles/bootstrap-theme.min.css" />
+</head>
+<body ng-controller="relojesAppCtrl">
+
+<div class="navbar navbar-inverse">
+		<a class="navbar-brand" href="#">
+			Relojeria OnLine
+		</a>
+		<resumen-carro/>
+	</div>
+	
+	<div ng-view></div>
+	<div class="alert alert-danger" ng-show="datos.error">
+		No se ha podido cargar los datos
+		<a href="index.html" class="alert-link">Intentar de nuevo</a>
+	
+	</div>
+	
+
+	
+
+	<!-- AngularJS -->
+	<script type="text/javascript" src="resources/scripts/angular.min.js"></script>
+	<script type="text/javascript" src="resources/scripts/angular.min.es_ES.js"></script>
+		<script type="text/javascript" src="resources/scripts/angular.router.min.js"></script>
+	<!-- AngularJS Locale (para Español) -->
+
+	<script type="text/javascript">
+	var relojesApp = angular.module("relojesApp", ["filtros","carro", "ngRoute"]);
+	
+	
+	relojesApp.config(["$routeProvider", function($routeProvider){
+		$routeProvider.when("/revisor",{
+			templateUrl: "vistas/resumenPrevision.html"
+			
+		});
+		$routeProvider.when("/productos",{
+			templateUrl: "vistas/listasRelojes1.html"
+		});	
+
+		$routeProvider.otherwise({
+			templateUrl: "vistas/listasRelojes1.html"
+		});
+	}]);
+	
+	
+	
+
+	
+	
+</script>
+	
+	<script type="text/javascript"
+		src="resources/scripts/almacen.js"></script>
+				
+	<script type="text/javascript"
+		src="resources/scripts/filtros/filtros.js"></script>
+	
+	<script type="text/javascript"
+		src="resources/scripts/productos.js"></script>
+	<script type="text/javascript"
+		src="componentes/carro/carro.js"></script>
+		
+	<script type="text/javascript"
+		src="resources/scripts/controladores/revisor.js"></script>
+</body>
+</html>

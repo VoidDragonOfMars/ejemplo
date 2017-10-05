@@ -1,0 +1,18 @@
+<style>
+	.navbar-right{
+		float: right !importat;
+		margin-right: 5px;	
+	}
+	
+	.navbar-text{
+		margin-right: 10px;	
+	}
+
+</style>
+<div class="navbar-right">
+	<div class="navbar-text">
+		<strong>Tu carro</strong>
+		{{elementosCarro()}} elementos {{total() | currency}}
+	</div>
+	<a href="#/revisor" class="btn btn-default navbar-btn">Revisar</a>
+</div>
